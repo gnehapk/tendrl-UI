@@ -1,0 +1,91 @@
+{
+  "name": "StorageManagement",
+  "description": "Storage management plugin",
+  "version": "0.1.0",
+  "scripts": {},
+  "author": "Neha Gupta(negupta@redhat.com)",
+  "dependencies": {
+    "angular": "~1.5.2",
+    "angular-animate": "^1.5.7",
+    "angular-aria": "^1.5.7",
+    "angular-cookies": "~1.5.2",
+    "angular-material": "^1.1.0-rc.5",
+    "angular-resource": "~1.5.2",
+    "angular-route": "~1.5.2",
+    "angular-sanitize": "~1.5.2",
+    "angular-strap": "~2.3.1",
+    "angular-ui-bootstrap": "^1.1.2",
+    "angular-ui-router": "0.2.13",
+    "angularjs-slider": "~2.14.0",
+    "bootstrap": "~3.3.6",
+    "es6-shim": "~0.35.0",
+    "idb-wrapper": "~1.5.0",
+    "jquery": "~2.2.1",
+    "lodash": "~3.10.0",
+    "numeral": "~1.5.3"
+  },
+  "devDependencies": {
+    "autoprefixer-core": "^5.1.7",
+    "chai": "^3.2.0",
+    "del": "~1.1.1",
+    "glob": "^4.3.2",
+    "gulp": "^3.8.8",
+    "gulp-concat": "^2.4.1",
+    "gulp-cssimport": "^1.3.1",
+    "gulp-eslint": "^1.0.0",
+    "gulp-gzip": "0.0.8",
+    "gulp-ignore": "^1.2.1",
+    "gulp-minify-css": "^0.5.1",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-postcss": "^4.0.3",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-svg-sprite": "^1.0.20",
+    "gulp-tar": "~1.3.2",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "~3.0.2",
+    "ip": "^0.3.3",
+    "karma": "~0.13.0",
+    "karma-chai": "~0.1.0",
+    "karma-coverage": "^0.2.6",
+    "karma-mocha": "~0.1.9",
+    "karma-mocha-reporter": "~0.3.1",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sinon": "^1.0.4",
+    "merge-stream": "^0.1.7",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.3.0",
+    "request": "~2.51.0",
+    "run-sequence": "^1.0.2",
+    "sinon": "^1.16.1",
+    "through2": "^0.6.3",
+    "underscore": "^1.8.3",
+    "vinyl": "^0.4.6"
+  },
+  "storagePluginProps": {
+    "preloads": [],
+    "resources": {
+      "../node_modules/bootstrap/fonts/*.*": "fonts/"
+    },
+    "targetBrowsers": [
+      "last 2 version"
+    ],
+    "cssMain": "commons/scss/main.scss",
+    "jsFiles": [
+      "commons/js/index.js",
+      "commons/**/*.js",
+      "directives/**/*.js",
+      "entities/**/*.js",
+      "factories/**/*.js",
+      "stores/**/*.js",
+      "services/**/*.js",
+      "modules/**/*.js"
+    ],
+    "htmlFiles": [
+      "index.html"
+    ],
+    "buildDestination": "./dist/",
+    "archiveExtension": ".tgz"
+  }
+}

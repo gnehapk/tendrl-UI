@@ -1,0 +1,15 @@
+{
+    "data": [{
+        "name": "MyCeph1",
+        "value": "MyCeph1",
+        "status": "active"
+    }, {
+        "name": "MyCeph2",
+        "value": "MyCeph2",
+        "status": "failed"
+    }, {
+        "name": "MyCeph3",
+        "value": "MyCeph3",
+        "status": "active"
+    }]
+}

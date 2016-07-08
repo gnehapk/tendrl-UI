@@ -1,0 +1,28 @@
+<div class="host-container">
+    <div ng-show="hostVm.activeTab === 2 && hostVm.hostList">
+        <h2 class="text-bold">Hosts</h2>
+        <div class="flex-table">
+            <div class="ft-row" ng-repeat="host in hostVm.hostList">
+                <div class="ft-column">
+                	<span ng-show="host.status === 'active'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
+            		<span ng-show="host.status !== 'active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
+                	<div class="host-status">{{host.status}}</div>
+                </div>
+                <div class="ft-column">
+                	<div class="host-name">{{host.name}}</div>
+                	<div>{{host.ip}}</div>
+                </div>
+                <div class="ft-column">
+                	<md-progress-circular md-mode="determinate" class="md-hue-2" value="70" md-diameter="25"></md-progress-circular>
+                </div>
+                <div class="ft-column">{{host.volumeUsed}}</div>
+                <div class="ft-column">{{host.cpuUsed}}</div>
+                <div class="ft-column">{{host.memoryUsed}}</div>
+                <div class="ft-column">{{host.clusterName}}</div>
+                <div class="ft-column">{{host.role}}</div>
+                <div class="ft-column">{{host.alerts}}</div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="hostVm.activeTab !== 2 && !hostVm.hostList" class="grey-bckgrnd"></div>
+</div>
