@@ -18,6 +18,16 @@
         .inactive-status {
             color: $color-red;
         }
+
+        .cluster-name-section {
+            position: relative;
+
+            .cluster-dropdown {
+                position: absolute;
+                margin: -5px 0 0 163px;
+                background-color: $color-white;
+            }
+        }
     }
     
     .horizontal-line {

@@ -1,1 +1,48 @@
-<div ng-show="poolVm.activeTab !== 3" class="grey-bckgrnd"></div>
+<div class="pool-container">
+    <div ng-show="poolVm.activeTab === 2 && poolVm.poolList">
+        <h2 class="text-bold">Pools</h2>
+        <div class="horizontal-line summary-line"></div>
+        <div class="pool-summary row"><strong>{{poolVm.poolList.length}} Pools</strong></div>
+        <div class="flex-table">
+            <div class="ft-row" ng-repeat="pool in poolVm.poolList">
+                <div class="ft-column">
+                    <span ng-show="pool.status === 'active'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
+                    <span ng-show="pool.status !== 'active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
+                    <div class="pool-status">{{pool.status}}</div>
+                </div>
+                <div class="ft-column">
+                    <div class="pool-name">{{pool.name}}</div>
+                    <div>{{pool.ip}}</div>
+                </div>
+                <div class="ft-column vol-percentage-col">
+                    <div class="row">
+                        <div class="pull-left col-md-4">
+                            <md-progress-circular md-mode="determinate" value="100" md-diameter="55" class="base-circle"></md-progress-circular>
+                            <md-progress-circular md-mode="determinate" value="{{pool.volumePercentage}}" md-diameter="55" class="percentage-circle"></md-progress-circular>
+                            <span class="percentage-text">{{pool.volumePercentage}} &#37;</span>
+                        </div>
+                        <div class="pull-left col-md-8 vol-used">
+                            <div><strong>{{pool.volumeUsed}} TB</strong></div>
+                            <div>of {{pool.totalVolume}} TB used</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft-column cpu-used"><strong>CPU </strong>{{pool.cpuUsed}} &#37;</div>
+                <div class="ft-column"><strong>Memory </strong>{{pool.memoryUsed}} &#37;</div>
+                <div class="ft-column">
+                    <div><strong>Cluster</strong></div>
+                    <div class="cluster-name">{{pool.clusterName}}</div>
+                </div>
+                <div class="ft-column">
+                    <div><strong>Role</strong></div>
+                    <div>{{pool.role}}</div>
+                </div>
+                <div class="ft-column">
+                    <div><strong>Alerts</strong></div>
+                    <div>{{pool.alerts}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="!poolVm.poolList" class="grey-bckgrnd"></div>
+</div>

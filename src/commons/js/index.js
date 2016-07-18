@@ -2,7 +2,7 @@
 (function() {
     "use strict";
 
-    var storageModule = angular.module("StorageManagementModule", ["ui.router"]);
+    var storageModule = angular.module("StorageManagementModule", ["ui.router", "ngMaterial"]);
 
     storageModule.config(function($stateProvider, $urlRouterProvider) {
 

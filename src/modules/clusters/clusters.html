@@ -9,7 +9,7 @@
             <span ng-show="clusterVm.selectedCluster.status !== 'active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
             <span class="breadcrumbs-lbl">{{clusterVm.selectedCluster.name}}</span>
             <span class="glyphicon glyphicon-chevron-down" aria-hidden="true" ng-click="clusterVm.showClusterList()"></span>
-            <select ng-show="clusterVm.showList" ng-model="clusterVm.selectedCluster" ng-options="cluster.name for cluster in clusterVm.clusterList">
+            <select ng-show="clusterVm.showList" ng-model="clusterVm.selectedCluster" ng-options="cluster.name for cluster in clusterVm.clusterList" class="cluster-dropdown" ng-change="clusterVm.hideClusterList()">
             </select>
         </div>
         <div class="horizontal-line"></div>

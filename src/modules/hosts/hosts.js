@@ -12,6 +12,7 @@
 
         vm.getHostList = getHostList;
         vm.activeTab = tabManager.getActiveTab();
+        vm.hostList = [];
 
         init();
 

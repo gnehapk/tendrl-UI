@@ -64,6 +64,7 @@
 }
 
 .host-container {
+
     .grey-bckgrnd {
         background-color: $color-white-smoke;
         height: 100vh;
@@ -88,5 +89,49 @@
 
     .host-name {
         color: $color-pacific-blue;
+        font-weight: bold;
+    }
+
+    .vol-percentage-col {
+        position: relative;
+
+        .percentage-text {
+            position: absolute;
+            margin-top: 18px;
+            margin-left: 12px;
+        }
+
+        .base-circle {
+            position: absolute;
+
+            svg path {
+                stroke: $color-dark-gray;    
+            }
+            
+        }
+
+        .percentage-circle svg path{
+            stroke: $color-mango-tango;
+        }
+
+        .vol-used{
+            padding-right: 0;
+        }
+    }
+
+    .cpu-used {
+        margin-left: 35px;
+    }
+
+    .cluster-name {
+        color: $color-pacific-blue;
+    }
+
+    .host-summary{
+        margin-left: 0;
+    }
+    
+    .summary-line {
+        margin-top: 0;
     }
 }

@@ -6,12 +6,14 @@
     app.controller("clusterController", clusterController);
 
     /*@ngInject*/
-    function clusterController($scope, $rootScope, $state, $stateParams, clusterStore, tabManager) {
+    function clusterController($scope, $controller, $rootScope, clusterStore, tabManager) {
 
-        var vm = this;
+        var vm = this,
+            hostVm;
 
         vm.getClusterList = getClusterList;
         vm.showClusterList = showClusterList;
+        vm.hideClusterList = hideClusterList;
         vm.setTab = setTab;
         vm.showList = false;
         $rootScope.showNavContent = false;
@@ -24,6 +26,7 @@
                 vm.clusterList = data.data;
                 vm.selectedCluster = vm.clusterList[0];
                 $rootScope.showNavContent = true;
+                hostVm = $controller("hostController as hostVm", { $scope: $scope});
             });
         };
 
@@ -38,6 +41,10 @@
         function setTab(tabNo) {
             tabManager.setActiveTab(2);
             vm.activeTab = tabNo;
+        }
+
+        function hideClusterList() {
+            vm.showList = false;
         }
     }
 
