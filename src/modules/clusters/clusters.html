@@ -1,7 +1,7 @@
 <div class="cluster-container">
     
     <div class="cluster-breadcrumb">
-        <a ng-click="clusterVm.getClusterList()" class="pull-left breadcrumbs-lbl">Clusters</a>
+        <a class="pull-left breadcrumbs-lbl">Clusters</a>
         
         <div ng-show="clusterVm.clusterList" class="pull-left cluster-name-section">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
@@ -20,6 +20,7 @@
             <li role="presentation" ng-class="{active: clusterVm.activeTab === 1}" ng-click="clusterVm.setTab(1)"><a ui-sref="overview">Overview</a></li>
             <li role="presentation" ng-class="{active: clusterVm.activeTab === 2}" ng-click="clusterVm.setTab(2)"><a ui-sref="hosts">Hosts</a></li>
             <li role="presentation" ng-class="{active: clusterVm.activeTab === 3}" ng-click="clusterVm.setTab(3)"><a ui-sref="pools">Pools</a></li>
+            <li role="presentation" ng-class="{active: clusterVm.activeTab === 4}" ng-click="clusterVm.setTab(4)"><a ui-sref="pools">OSDs</a></li>
         </ul>
     </div>
     

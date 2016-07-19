@@ -56,6 +56,17 @@
                         controllerAs: "poolVm"
                     }
                 }
+            })
+            .state("osds", {
+                parent: "clusters",
+                url: "/osds",
+                views: {
+                    "clustersMenu@clusters" : {
+                        templateUrl: "modules/osds/osds.html",
+                        controller: "osdController",
+                        controllerAs: "osdVm"
+                    }
+                }
             });
     });
 

@@ -11,8 +11,8 @@
                     <div class="pool-status">{{pool.status}}</div>
                 </div>
                 <div class="ft-column">
-                    <div class="pool-name">{{pool.name}}</div>
-                    <div>{{pool.ip}}</div>
+                    <div><strong>{{pool.name}}</strong> on <strong>{{pool.clusterName}}</strong></div>
+                    <div>{{pool.mode}}</div>
                 </div>
                 <div class="ft-column vol-percentage-col">
                     <div class="row">
@@ -22,20 +22,23 @@
                             <span class="percentage-text">{{pool.volumePercentage}} &#37;</span>
                         </div>
                         <div class="pull-left col-md-8 vol-used">
-                            <div><strong>{{pool.volumeUsed}} TB</strong></div>
-                            <div>of {{pool.totalVolume}} TB used</div>
+                            <div><strong>{{pool.volumeUsed}} GB</strong></div>
+                            <div>of {{pool.totalVolume}} GB used</div>
                         </div>
                     </div>
                 </div>
-                <div class="ft-column cpu-used"><strong>CPU </strong>{{pool.cpuUsed}} &#37;</div>
-                <div class="ft-column"><strong>Memory </strong>{{pool.memoryUsed}} &#37;</div>
+                <div class="ft-column latency">Latency <strong>{{pool.latency}} </strong>ms</div>
                 <div class="ft-column">
-                    <div><strong>Cluster</strong></div>
-                    <div class="cluster-name">{{pool.clusterName}}</div>
+                    <div><strong>Replicas</strong></div>
+                    <div>{{pool.replicas}}</div>
                 </div>
                 <div class="ft-column">
-                    <div><strong>Role</strong></div>
-                    <div>{{pool.role}}</div>
+                    <div><strong>OSDs</strong></div>
+                    <div class="osd-count">{{pool.OSDs}}</div>
+                </div>
+                <div class="ft-column">
+                    <div><strong>Quotas</strong></div>
+                    <div>{{pool.quotas}}</div>
                 </div>
                 <div class="ft-column">
                     <div><strong>Alerts</strong></div>

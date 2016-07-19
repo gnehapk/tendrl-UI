@@ -13,6 +13,7 @@
         getClusterListRequest = {
             method: "GET",
             url: "api/cluster-list.json"
+            //url: "http://10.3.15.35:9292/clusters"
         };
 
         function getClusterList() {

@@ -1,0 +1,133 @@
+.flex-table {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 14px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+
+    .ft-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        border-bottom: 1px solid #DDDDDD;
+        padding: 10px 0 10px 0;
+
+        &.ft-header {
+            font-weight: bold;
+            background-color: #E1E1E1 !important;
+        }
+
+        &:first-child {
+            border-top: 1px solid #DDDDDD;
+        }
+    }
+
+    .ft-column {
+        flex-basis: 0;
+        flex-grow: 1;
+        padding: 4px;
+
+        @media screen and (min-width: 768px) {
+            padding: 6px;
+        }
+
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        &.ft-check {
+            display: flex;
+            justify-content: center;
+            max-width: 34px;
+
+            @media screen and (min-width: 768px) {
+                max-width: 50px;
+            }
+        }
+
+        &.ft-main {
+            flex-grow: 3;
+            word-wrap: break-word;
+
+            @media screen and (min-width: 768px) {
+                flex-grow: 5;
+            }
+        }
+        
+    }
+
+}
+
+.pool-container {
+
+    .grey-bckgrnd {
+        background-color: $color-white-smoke;
+        height: 100vh;
+        margin: 7px -16px 0 -16px;
+    }
+
+    .active-status {
+        color: $color-islamic-green;
+        font-size: 22px;
+        margin-left: 7px;
+    }
+        
+    .inactive-status {
+        color: $color-red;
+        font-size: 22px;
+        margin-left: 7px;
+    }
+
+    .pool-status {
+        text-transform: capitalize;
+    }
+
+    .vol-percentage-col {
+        position: relative;
+        padding-right: 13px;
+
+        .percentage-text {
+            position: absolute;
+            margin-top: 18px;
+            margin-left: 12px;
+        }
+
+        .base-circle {
+            position: absolute;
+
+            svg path {
+                stroke: $color-dark-gray;    
+            }
+            
+        }
+
+        .percentage-circle svg path{
+            stroke: $color-mango-tango;
+        }
+
+        .vol-used{
+            padding-right: 0;
+        }
+    }
+
+    .osd-count {
+        color: $color-pacific-blue;
+    }
+
+    .pool-summary{
+        margin-left: 0;
+    }
+    
+    .summary-line {
+        margin-top: 0;
+    }
+
+    .latency {
+        margin-left: 35px;
+    }
+}

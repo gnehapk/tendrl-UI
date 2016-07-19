@@ -36,6 +36,7 @@
 
         function init() {
             vm.activeTab = tabManager.getActiveTab();
+            getClusterList();
         }
 
         function setTab(tabNo) {
