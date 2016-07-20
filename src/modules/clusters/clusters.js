@@ -6,7 +6,7 @@
     app.controller("clusterController", clusterController);
 
     /*@ngInject*/
-    function clusterController($scope, $controller, $rootScope, clusterStore, tabManager) {
+    function clusterController($scope, $controller, $rootScope, clusterStore, tabManager, dataStorage) {
 
         var vm = this,
             hostVm;
@@ -23,10 +23,18 @@
 
         function getClusterList() {
             clusterStore.getClusterList().then(function(data) {
-                vm.clusterList = data.data;
+                vm.clusterList = data;
                 vm.selectedCluster = vm.clusterList[0];
                 $rootScope.showNavContent = true;
-                hostVm = $controller("hostController as hostVm", { $scope: $scope});
+
+                //setting selected cluster's details into the service
+                clusterStore.getClusterDetails(vm.selectedCluster).then(function(data) {
+                    dataStorage.setClusterInfo(data);
+
+                    //TODO: modify overall_status property in cluster store
+                    vm.selectedCluster.status = data.health.overall_status;
+
+                });
             });
         };
 
@@ -40,7 +48,7 @@
         }
 
         function setTab(tabNo) {
-            tabManager.setActiveTab(2);
+            tabManager.setActiveTab(tabNo);
             vm.activeTab = tabNo;
         }
 

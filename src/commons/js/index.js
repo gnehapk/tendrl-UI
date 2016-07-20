@@ -4,6 +4,8 @@
 
     var storageModule = angular.module("StorageManagementModule", ["ui.router", "ngMaterial"]);
 
+    storageModule.constant("serverIP", "http://10.3.15.35:9292/");
+
     storageModule.config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/dashboard");

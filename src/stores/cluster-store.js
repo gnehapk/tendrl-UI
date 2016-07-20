@@ -19,6 +19,14 @@
                     });
         };
 
+        store.getClusterDetails = function(clusterInfo) {
+
+            return clusterFactory.getClusterDetails(clusterInfo)
+                    .then(function (details) {
+                        return details;
+                    });
+        };
+
     }
 
 })();

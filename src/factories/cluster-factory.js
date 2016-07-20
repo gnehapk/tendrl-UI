@@ -3,17 +3,17 @@
 
     var app = angular.module("StorageManagementModule");
 
-    app.factory("clusterFactory", clusterFactory);
+    app.factory("clusterFactory", ["$http", "serverIP", clusterFactory]);
 
     /*@ngInject*/
-    function clusterFactory($http, $q) {
+    function clusterFactory($http, serverIP) {
 
         var getClusterListRequest;
 
         getClusterListRequest = {
             method: "GET",
-            url: "api/cluster-list.json"
-            //url: "http://10.3.15.35:9292/clusters"
+            //url: "api/cluster-list.json"
+            url: serverIP + "/clusters"
         };
 
         function getClusterList() {
@@ -24,8 +24,19 @@
             });
         }
 
+        function getClusterDetails(clusterInfo) {
+            var request = angular.copy(getClusterListRequest);
+
+            request.url += "/" + clusterInfo.id;
+
+            return $http(request).then(function (response) {
+                return response.data;
+            });
+        }
+
         return {
-            getClusterList: getClusterList
+            getClusterList: getClusterList,
+            getClusterDetails: getClusterDetails
         };
     }
 

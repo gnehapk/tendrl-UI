@@ -1,13 +1,13 @@
 <div class="pool-container">
-    <div ng-show="poolVm.activeTab === 2 && poolVm.poolList">
+    <div ng-show="poolVm.activeTab === 3 && poolVm.poolList">
         <h2 class="text-bold">Pools</h2>
         <div class="horizontal-line summary-line"></div>
         <div class="pool-summary row"><strong>{{poolVm.poolList.length}} Pools</strong></div>
         <div class="flex-table">
             <div class="ft-row" ng-repeat="pool in poolVm.poolList">
                 <div class="ft-column">
-                    <span ng-show="pool.status === 'active'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
-                    <span ng-show="pool.status !== 'active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
+                    <span ng-show="pool.status === 'mock_active'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
+                    <span ng-show="pool.status !== 'mock_active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
                     <div class="pool-status">{{pool.status}}</div>
                 </div>
                 <div class="ft-column">

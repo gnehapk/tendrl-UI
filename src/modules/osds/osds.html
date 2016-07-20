@@ -1,5 +1,46 @@
 <div class="osd-container">
-    <div ng-show="osdVm.activeTab === 4 && osdVm.osdList.length !== 0">
-        
-    <div ng-show="!osdVm.osdList.length" class="grey-bckgrnd"></div>
+    <div ng-show="osdVm.activeTab === 4 && osdVm.osdList.length !== 0" class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-8 col-lg-8">
+                <div class="osd-tile-list">
+
+                    <div ng-repeat="osd in osdVm.osdList" class="osd-tile col-xs-6 col-md-4 col-sm-3 col-lg-3">
+                        <div class="osd-cell card-box-shadow" ng-click="osdVm.showOSDDetails(osd)">
+                            <div class="osd-body container-fluid">
+                                <div class="row">
+                                    <p class="col-sm-5">{{osd.name}}</p>
+                                    <div class="col-sm-7">
+                                        <span ng-show="osd.status === 'active'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
+                                        <span ng-show="osd.status !== 'active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-4 osd-details-section" ng-show="osdVm.selectedOSD">
+                <div class="row name-section">
+                    <div class="col-md-1">
+                        <span ng-show="osdVm.selectedOSD.status === 'active'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
+                        <span ng-show="osdVm.selectedOSD.status !== 'active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-10">{{osdVm.selectedOSD.name}}</div>
+                </div>
+                
+                <div class="row horizontal-line"></div>
+
+                <div class="row">
+                    <div class="text-bold">Device Path</div>
+                    <div >{{osdVm.selectedOSD.devicePath}}</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

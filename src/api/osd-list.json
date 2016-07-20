@@ -1,28 +1,26 @@
 [{
-    "pool1": [{
-        "name": "OSD1",
-        "status": "active",
-        "utilization": "50",
-        "weight": 1.0
-    }, {
-        "name": "OSD2",
-        "status": "failed",
-        "utilization": "50",
-        "weight": 1.0
-    }, {
-        "name": "OSD3",
-        "status": "active",
-        "utilization": "50",
-        "weight": 1.0
-    }, {
-        "name": "OSD4",
-        "status": "active",
-        "utilization": "50",
-        "weight": 1.0
-    },{
-        "name": "OSD5",
-        "status": "active",
-        "utilization": "50",
-        "weight": 1.0
-    }]
+    "name": "OSD1",
+    "status": "active",
+    "utilization": "50",
+    "weight": 1.0
+}, {
+    "name": "OSD2",
+    "status": "failed",
+    "utilization": "50",
+    "weight": 1.0
+}, {
+    "name": "OSD3",
+    "status": "active",
+    "utilization": "50",
+    "weight": 1.0
+}, {
+    "name": "OSD4",
+    "status": "active",
+    "utilization": "50",
+    "weight": 1.0
+}, {
+    "name": "OSD5",
+    "status": "active",
+    "utilization": "50",
+    "weight": 1.0
 }]
