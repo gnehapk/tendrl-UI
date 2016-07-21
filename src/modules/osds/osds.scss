@@ -7,7 +7,7 @@
 
     .osd-tile-list {
         overflow: hidden;
-        height: 92vh;
+        height: 76vh;
         border-right: 2px solid $color-dark-gray;
     }
 
@@ -44,5 +44,56 @@
             margin-top: 8px;
         }
     }
+
+    .details-field {
+        margin-left: 0;
+        margin-bottom: 6px;
+        font-size: 14px;
+    }
+
+    .osd-status {
+        text-transform: uppercase;
+        font-size: 10px;
+        margin-left: 4px;
+
+        &.active {
+            color: $color-islamic-green;
+        }
+
+        &.inactive {
+            color: $color-red;
+        }
+    }
     
+    .journal-block, .domain-block {
+        margin-top: 12px;
+
+        .details-header {
+            margin-left: -17px;
+
+            > span {
+                margin-right: 3px;
+            }
+        }
+
+        .domain-block-body {
+            border: 1px solid $color-dark-gray;
+            max-width: 320px;
+
+            .details-field {
+                padding: 5px 0;
+                margin-right: 0;
+                margin-bottom: 0;
+
+                .border-right {
+                    width: 1px;
+                    background-color: $color-dark-gray;
+                }
+            }
+
+            > .row:nth-child(2n) {
+                background-color: $color-white-gainsboro;
+            }
+        }
+    }
 }

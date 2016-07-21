@@ -3,35 +3,34 @@
 
     var app = angular.module("StorageManagementModule");
 
-    app.factory("osdFactory", ["$http", "serverIP" ,osdFactory]);
+    app.factory("osdFactory", ["$http", "serverIP", "dataStorage", osdFactory]);
 
     /*@ngInject*/
-    function osdFactory($http, serverIP) {
+    function osdFactory($http, serverIP, dataStorage) {
 
-        var getOSDListRequest,
-            getOSDDetailsRequest;
+        var getOSDListRequest;
 
         getOSDListRequest = {
             method: "GET",
-            url: "api/osd-list.json"
+            //url: "api/osd-list.json"
+            url: serverIP + "/clusters/"
         };
 
-        getOSDDetailsRequest = {
-            method: "GET",
-            url: "api/osd.json"
-        };
 
         function getOSDList() {
             var request = angular.copy(getOSDListRequest);
+
+            request.url += dataStorage.getClusterInfo().id + "/osds";
 
             return $http(request).then(function (response) {
                 return response.data;
             });
         }
 
-        function getOSDDetails() {
-            var request = angular.copy(getOSDDetailsRequest);
+        function getOSDDetails(osd) {
+            var request = angular.copy(getOSDListRequest);
 
+            request.url += dataStorage.getClusterInfo().id + "/osds/" + osd.uuid;
             return $http(request).then(function (response) {
                 return response.data;
             });
