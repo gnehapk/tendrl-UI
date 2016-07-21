@@ -6,7 +6,7 @@
     app.controller("clusterController", clusterController);
 
     /*@ngInject*/
-    function clusterController($scope, $controller, $rootScope, clusterStore, tabManager, dataStorage) {
+    function clusterController($scope, $state, $controller, $rootScope, clusterStore, tabManager, dataStorage) {
 
         var vm = this,
             hostVm;
@@ -45,6 +45,7 @@
         function init() {
             vm.activeTab = tabManager.getActiveTab();
             getClusterList();
+            $state.go("overview");
         }
 
         function setTab(tabNo) {

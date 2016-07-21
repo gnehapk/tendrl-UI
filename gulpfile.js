@@ -301,4 +301,4 @@ gulp.task("release", ["common", "compress"], function (done) {
     runSequence("ut", "upload", done);
 });
 
-gulp.task("default", ["release"]);
+gulp.task("default", ["dev"]);

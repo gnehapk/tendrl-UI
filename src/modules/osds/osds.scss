@@ -7,7 +7,7 @@
 
     .osd-tile-list {
         overflow: hidden;
-        height: 76vh;
+        height: 79vh;
         border-right: 2px solid $color-dark-gray;
     }
 
@@ -20,12 +20,13 @@
 
         .osd-name {
             font-size: 22px;
+            margin: 5px 0 3px 0;
         }
 
         .osd-status-icon {
             font-size: 25px;
             margin-left: -22px;
-            margin-top: 2px;
+            margin-top: 4px;
         }
     }
 
