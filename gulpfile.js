@@ -69,7 +69,8 @@ var paths = (function () {
         cssMain: pluginOpts.cssMain,
         jsFiles: pluginOpts.jsFiles,
         htmlFiles: pluginOpts.htmlFiles,
-        resources: pluginOpts.resources
+        resources: pluginOpts.resources,
+        template: "template/"
     };
 })();
 
@@ -100,11 +101,21 @@ gulp.task("jsLibraries", function() {
     "node_modules/angular-messages/angular-messages.min.js",
     "node_modules/angular-ui-router/release/angular-ui-router.js",
     "node_modules/bootstrap/dist/js/bootstrap.min.js",
-    "node_modules/angular-material/angular-material.min.js"
+    "node_modules/angular-material/angular-material.min.js",
+    "vendor/angular-ui-bootstrap/progressbar/progressbar.js"
   ])
   .pipe(uglify())
   .pipe(concat("libraries.js"))
   .pipe(gulp.dest(paths.dest + paths.jsLibraries));
+});
+
+gulp.task("htmlTemplates", function() {
+    return gulp.src([
+        "vendor/angular-ui-bootstrap/progressbar/progress.html",
+        "vendor/angular-ui-bootstrap/progressbar/progressbar.html",
+        "vendor/angular-ui-bootstrap/progressbar/bar.html"
+    ])
+    .pipe(gulp.dest(paths.dest + paths.template));
 });
 
 gulp.task("cssLibraries", function() {
@@ -277,7 +288,7 @@ gulp.task("upload", function (done) {
 });
 
 // Common task
-gulp.task("common", ["eslint", "jsLibraries", "cssLibraries", "resource", "copy", "preload", "sass", "jsbundle"]);
+gulp.task("common", ["eslint", "jsLibraries", "cssLibraries", "htmlTemplates", "resource", "copy", "preload", "sass", "jsbundle"]);
 
 // dev mode task
 gulp.task("dev", ["common", "compress", "watcher"], function (done) {

@@ -24,8 +24,6 @@
         function getOSDList() {
             osdStore.getOSDList().then(function(data) {
                 vm.osdList = data;
-
-                console.log(vm.osdList);
             });
         }
 

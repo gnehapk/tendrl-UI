@@ -13,6 +13,20 @@
 
     .osd-body {
         padding: 10px;
+
+        .weight-bar {
+            margin: 10px 0 -11px 0;
+        }
+
+        .osd-name {
+            font-size: 22px;
+        }
+
+        .osd-status-icon {
+            font-size: 25px;
+            margin-left: -22px;
+            margin-top: 2px;
+        }
     }
 
     .card-box-shadow {
@@ -21,6 +35,11 @@
             height: 1px;
             background-color: $color-white-gainsboro;
         }
+    
+    }
+
+    .selected-box {
+        box-shadow: 1px 2px 7px 2px $color-curious-blue;   
     }
 
     .active-status {

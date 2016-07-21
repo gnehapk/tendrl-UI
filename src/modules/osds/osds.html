@@ -4,16 +4,18 @@
             <div class="col-md-8 col-lg-8">
                 <div class="osd-tile-list">
                     <div ng-repeat="osd in osdVm.osdList" class="osd-tile col-xs-6 col-md-4 col-sm-3 col-lg-3">
-                        <div class="osd-cell card-box-shadow" ng-click="osdVm.showOSDDetails(osd)">
+                        <div class="osd-cell card-box-shadow" ng-click="osdVm.showOSDDetails(osd)" ng-class="{'selected-box': (osd.uuid === osdVm.selectedOSD.uuid)}">
                             <div class="osd-body container-fluid">
                                 <div class="row">
-                                    <p class="col-sm-5">OSD&#46;{{osd.osd}}</p>
-                                    <div class="col-sm-7">
+                                    <p class="col-sm-7 osd-name text-center">OSD&#46;{{osd.osd}}</p>
+                                    <div class="col-sm-5 osd-status-icon">
                                         <span ng-show="osd.state[1] === 'up'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
                                         <span ng-show="osd.state[1] !== 'up'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <!-- TODO - bind the value of weight-->
+                                    <div class="col-sm-12 weight-bar"><uib-progressbar value="100"></uib-progressbar></div>
                                 </div>
                             </div>
                         </div>

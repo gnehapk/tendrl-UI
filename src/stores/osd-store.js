@@ -54,6 +54,7 @@
             temp.devicePath = "m_host1:/dev/disk/pci-0005:00-sas";
             temp.name = "OSD." + data.osd;
             temp.state = data.state;
+            temp.uuid = data.uuid;
 
             temp.journal = {};
             temp.journal.devicePath = "m_host1:/var/lib/ceph/osd/ceph-9/journal";

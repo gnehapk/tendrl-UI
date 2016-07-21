@@ -2,7 +2,7 @@
 (function() {
     "use strict";
 
-    var storageModule = angular.module("StorageManagementModule", ["ui.router", "ngMaterial"]);
+    var storageModule = angular.module("StorageManagementModule", ["ui.router", "ngMaterial", "ui.bootstrap.progressbar"]);
 
     storageModule.constant("serverIP", "http://10.3.15.35:9292/");
 
