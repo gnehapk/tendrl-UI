@@ -1,7 +1,7 @@
 <div class="osd-container">
     <div ng-show="osdVm.activeTab === 4 && osdVm.osdList.length !== 0" class="container-fluid">
         <div class="row selection-condition">
-            <div class="col-md-8 col-lg-8 text-bold osd-count">{{osdVm.osdList.length}} OSDs</div>
+            <div class="col-md-8 col-lg-8"><div class="text-bold osd-count">{{osdVm.osdList.length}} OSDs</div></div>
             <div class="col-md-4 col-lg-4">
                 <div class="row show-label">Show:</div>
                 <div class="row">
@@ -136,4 +136,6 @@
             </div>
         </div>
     </div>
+
+    <loading-icon class="text-center loading-icon" config="osdVm.loadingConfig"></loading-icon>
 </div>

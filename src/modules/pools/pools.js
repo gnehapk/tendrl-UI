@@ -19,12 +19,16 @@
         function getPoolList() {
             poolStore.getPoolList().then(function(data) {
                 vm.poolList = data;
-
-                console.log(vm.poolList);
+                vm.loadingConfig.isLoading = false;
             });
         }
 
         function init() {
+            
+            vm.loadingConfig = {
+                isLoading: true
+            };
+
             if($rootScope.showNavContent === true) {
                 vm.getPoolList();
             }            

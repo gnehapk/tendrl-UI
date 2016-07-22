@@ -122,7 +122,7 @@ gulp.task("cssLibraries", function() {
   return gulp.src([
     "node_modules/bootstrap/dist/css/bootstrap.min.css",
     "vendor/html5-boilerplate.css",
-    "node_modules/angular-material/angular-material.min.css"    
+    "node_modules/angular-material/angular-material.min.css"
   ])
   .pipe(postCss([autoprefixer({ browsers: browsers })]))
   .pipe(buildMode === "dev" ? gutil.noop() : minifyCSS())

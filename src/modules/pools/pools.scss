@@ -65,6 +65,11 @@
 
 .pool-container {
 
+    .loading-icon {
+        position: absolute;
+        left: 50%;
+    }
+
     .grey-bckgrnd {
         background-color: $color-white-smoke;
         height: 100vh;

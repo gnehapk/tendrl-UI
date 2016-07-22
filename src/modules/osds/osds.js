@@ -27,10 +27,17 @@
                 vm.osdList = data;
                 vm.selectionMode = "utilisation";
                 vm.showOSDDetails(vm.osdList[0]);
+
+                vm.loadingConfig.isLoading = false;
             });
         }
 
         function init() {
+
+            vm.loadingConfig = {
+                isLoading: true
+            };
+
             if ($rootScope.showNavContent === true) {
                 vm.getOSDList();
             }

@@ -1,5 +1,11 @@
 .osd-container {
 
+    .loading-icon {
+        position: absolute;
+        left: 50%;
+        margin-top: 60px;
+    }
+
     .osd-tile {
         padding: 15px;
         max-width: 1200px;
@@ -24,6 +30,7 @@
 
         .osd-count {
             padding-top: 20px;
+            border-right: 2px solid $color-dark-gray;
         }
     }
 
