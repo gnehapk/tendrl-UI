@@ -18,7 +18,7 @@
             })
             .state("dashboard", {
                 url: "/dashboard",
-                template: "<h1>To be coming soon...</h1>"
+                template: "<h1>Coming soon...</h1>"
             })
             .state("clusters", {
                 url: "/clusters",

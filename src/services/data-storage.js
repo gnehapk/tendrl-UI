@@ -16,7 +16,6 @@
             clusterInfo.health = details.health.overall_status;
             clusterInfo.clusterName = details.name;
             clusterInfo.id = details.id;
-            console.log(clusterInfo);
         };
 
         vm.getClusterInfo = function() {

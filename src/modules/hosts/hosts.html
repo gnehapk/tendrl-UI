@@ -1,13 +1,13 @@
 <div class="host-container">
     <div ng-show="hostVm.activeTab === 2 && hostVm.hostList.length !== 0">
-        <h2 class="text-bold">Hosts(mocked data)</h2>
+        <h2 class="text-bold">Hosts</h2>
         <div class="horizontal-line summary-line"></div>
         <div class="host-summary row"><strong>{{hostVm.hostList.length}} Hosts</strong></div>
         <div class="flex-table">
             <div class="ft-row" ng-repeat="host in hostVm.hostList">
                 <div class="ft-column">
-                    <span ng-show="host.status === 'active'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
-                    <span ng-show="host.status !== 'active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
+                    <span ng-show="host.status === 'm_active'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
+                    <span ng-show="host.status !== 'm_active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
                     <div class="host-status">{{host.status}}</div>
                 </div>
                 <div class="ft-column">
@@ -17,8 +17,8 @@
                 <div class="ft-column vol-percentage-col">
                     <div class="row">
                         <div class="pull-left col-md-4">
-                            <md-progress-circular md-mode="determinate" value="100" md-diameter="55" class="base-circle"></md-progress-circular>
-                            <md-progress-circular md-mode="determinate" value="{{host.volumePercentage}}" md-diameter="55" class="percentage-circle"></md-progress-circular>
+                            <md-progress-circular md-mode="determinate" value="100" md-diameter="47" class="base-circle"></md-progress-circular>
+                            <md-progress-circular md-mode="determinate" value="{{host.volumePercentage}}" md-diameter="47" class="percentage-circle"></md-progress-circular>
                             <span class="percentage-text">{{host.volumePercentage}} &#37;</span>
                         </div>
                         <div class="pull-left col-md-8 vol-used">
@@ -44,5 +44,5 @@
             </div>
         </div>
     </div>
-    <div ng-show="!hostVm.hostList.length" class="grey-bckgrnd"></div>
+    <loading-icon class="text-center loading-icon" config="hostVm.loadingConfig"></loading-icon>
 </div>

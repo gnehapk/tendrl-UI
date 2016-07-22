@@ -65,6 +65,12 @@
 
 .host-container {
 
+    .loading-icon {
+        position: absolute;
+        left: 50%;
+        margin-top: 60px;
+    }
+
     .grey-bckgrnd {
         background-color: $color-white-smoke;
         height: 100vh;
@@ -99,6 +105,7 @@
             position: absolute;
             margin-top: 18px;
             margin-left: 12px;
+            font-size: 13px;
         }
 
         .base-circle {

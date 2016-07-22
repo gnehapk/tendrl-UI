@@ -18,13 +18,18 @@
 
         function getHostList() {
             hostStore.getHostList().then(function(data) {
-                vm.hostList = data.data;
+                vm.hostList = data;
 
-                console.log(vm.hostList);
+                vm.loadingConfig.isLoading = false;
             });
         }
 
         function init() {
+
+            vm.loadingConfig = {
+                isLoading: true
+            };
+
             if($rootScope.showNavContent === true) {
                 vm.getHostList();
             }            
