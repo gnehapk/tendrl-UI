@@ -1,5 +1,20 @@
 <div class="osd-container">
     <div ng-show="osdVm.activeTab === 4 && osdVm.osdList.length !== 0" class="container-fluid">
+        <div class="row selection-condition">
+            <div class="col-md-8 col-lg-8 text-bold osd-count">{{osdVm.osdList.length}} OSDs</div>
+            <div class="col-md-4 col-lg-4">
+                <div class="row show-label">Show:</div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <input type="radio" name="selecetionMode" ng-model="osdVm.selectionMode" value="utilisation" ng-change="osdVm.selectOSDCriteria(osdVm.selectionMode)"> Utilisation
+                    </div>
+                    <div class="col-md-5">
+                        <input type="radio" name="selecetionMode" ng-model="osdVm.selectionMode" value="weight" ng-change="osdVm.selectOSDCriteria(osdVm.selectionMode)"> Weight
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="horizontal-line summary-line"></div>
         <div class="row">
             <div class="col-md-8 col-lg-8">
                 <div class="osd-tile-list">
@@ -15,7 +30,8 @@
                                 </div>
                                 <div class="row">
                                     <!-- TODO - bind the value of weight-->
-                                    <div class="col-sm-12 weight-bar"><uib-progressbar value="100"></uib-progressbar></div>
+                                    <div ng-show="osdVm.selectionMode === 'weight'" class="col-sm-12 weight-bar"><uib-progressbar value="100"></uib-progressbar></div>
+                                    <div ng-show="osdVm.selectionMode === 'utilisation'" class="col-sm-12 weight-bar"><uib-progressbar value="50"></uib-progressbar></div>
                                 </div>
                             </div>
                         </div>

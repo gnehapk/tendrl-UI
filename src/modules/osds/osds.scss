@@ -11,6 +11,22 @@
         border-right: 2px solid $color-dark-gray;
     }
 
+    .summary-line {
+        margin-top: 12px;
+    }
+
+    .selection-condition {
+        margin-top: 16px;
+
+        .show-label {
+            margin-bottom: 3px;
+        }
+
+        .osd-count {
+            padding-top: 20px;
+        }
+    }
+
     .osd-body {
         padding: 10px;
 
