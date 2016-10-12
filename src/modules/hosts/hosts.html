@@ -1,0 +1,48 @@
+<div class="host-container">
+    <div ng-show="hostVm.activeTab === 2 && hostVm.hostList.length !== 0">
+        <h2 class="text-bold">Hosts</h2>
+        <div class="horizontal-line summary-line"></div>
+        <div class="host-summary row"><strong>{{hostVm.hostList.length}} Hosts</strong></div>
+        <div class="flex-table">
+            <div class="ft-row" ng-repeat="host in hostVm.hostList">
+                <div class="ft-column">
+                    <span ng-show="host.status === 'm_active'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
+                    <span ng-show="host.status !== 'm_active'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
+                    <div class="host-status">{{host.status}}</div>
+                </div>
+                <div class="ft-column">
+                    <div class="host-name">{{host.name}}</div>
+                    <div>{{host.ip}}</div>
+                </div>
+                <div class="ft-column vol-percentage-col">
+                    <div class="row">
+                        <div class="pull-left col-md-4">
+                            <md-progress-circular md-mode="determinate" value="100" md-diameter="47" class="base-circle"></md-progress-circular>
+                            <md-progress-circular md-mode="determinate" value="{{host.volumePercentage}}" md-diameter="47" class="percentage-circle"></md-progress-circular>
+                            <span class="percentage-text">{{host.volumePercentage}} &#37;</span>
+                        </div>
+                        <div class="pull-left col-md-8 vol-used">
+                            <div><strong>{{host.volumeUsed}} TB</strong></div>
+                            <div>of {{host.totalVolume}} TB used</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft-column cpu-used"><strong>CPU </strong>{{host.cpuUsed}} &#37;</div>
+                <div class="ft-column"><strong>Memory </strong>{{host.memoryUsed}} &#37;</div>
+                <div class="ft-column">
+                    <div><strong>Cluster</strong></div>
+                    <div class="cluster-name">{{host.clusterName}}</div>
+                </div>
+                <div class="ft-column">
+                    <div><strong>Role</strong></div>
+                    <div>{{host.role}}</div>
+                </div>
+                <div class="ft-column">
+                    <div><strong>Alerts</strong></div>
+                    <div>{{host.alerts}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <loading-icon class="text-center loading-icon" config="hostVm.loadingConfig"></loading-icon>
+</div>

@@ -267,10 +267,10 @@ gulp.task("upload", function (done) {
 
     var fileToUpload = "./" + archiveName;
 
-    gutil.log("Uploading package to SERVER");
+    gutil.log("Uploading package to ICE");
 
     request({
-        url: "http://localhost:8080/",
+        url: "http://localhost/kitoon/tendlr/",
         method: "POST",
         formData: {
             "f": fs.createReadStream(fileToUpload)

@@ -1,0 +1,14 @@
+{
+	"devicePath": "host1:/dev/disk/pci-0005:00-sas",
+	"utilisation": 50,
+	"weight": 1,
+	"stoargeProfile": "SSD",
+	"poolName": "Pool1",
+	"datacenter": "DC1",
+	"room": "server-room-alpha",
+	"rack": "Rack1",
+	"chasis": "Chasis1",
+	"host": "Host1",
+	"name": "OSD 1",
+	"status": "active"
+}

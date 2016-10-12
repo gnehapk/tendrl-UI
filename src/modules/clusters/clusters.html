@@ -15,4 +15,16 @@
         <div class="horizontal-line"></div>
     </div>
     
+    <div class="row">
+        <ul class="nav nav-tabs">
+            <li role="presentation" ng-class="{active: clusterVm.activeTab === 1}" ng-click="clusterVm.setTab(1)"><a ui-sref="overview">Overview</a></li>
+            <li role="presentation" ng-class="{active: clusterVm.activeTab === 2}" ng-click="clusterVm.setTab(2)"><a ui-sref="hosts">Hosts</a></li>
+            <li role="presentation" ng-class="{active: clusterVm.activeTab === 3}" ng-click="clusterVm.setTab(3)"><a ui-sref="pools">Pools</a></li>
+            <li role="presentation" ng-class="{active: clusterVm.activeTab === 4}" ng-click="clusterVm.setTab(4)"><a ui-sref="osds">OSDs</a></li>
+        </ul>
+    </div>
+    
+    <div class="row view-container">
+        <div class="col-md-12" ui-view="clustersMenu"></div>
+    </div>
 </div>

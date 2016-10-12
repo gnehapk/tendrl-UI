@@ -13,7 +13,7 @@
             clusterInfo = {};
 
         vm.setClusterInfo = function(details) {
-            clusterInfo.health = details.status;
+            clusterInfo.health = details.health.overall_status;
             clusterInfo.clusterName = details.name;
             clusterInfo.id = details.id;
         };

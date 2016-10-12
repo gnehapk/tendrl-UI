@@ -1,0 +1,141 @@
+<div class="osd-container">
+    <div ng-show="osdVm.activeTab === 4 && osdVm.osdList.length !== 0" class="container-fluid">
+        <div class="row selection-condition">
+            <div class="col-md-8 col-lg-8"><div class="text-bold osd-count">{{osdVm.osdList.length}} OSDs</div></div>
+            <div class="col-md-4 col-lg-4">
+                <div class="row show-label">Show:</div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <input type="radio" name="selecetionMode" ng-model="osdVm.selectionMode" value="utilisation" ng-change="osdVm.selectOSDCriteria(osdVm.selectionMode)"> Utilisation
+                    </div>
+                    <div class="col-md-5">
+                        <input type="radio" name="selecetionMode" ng-model="osdVm.selectionMode" value="weight" ng-change="osdVm.selectOSDCriteria(osdVm.selectionMode)"> Weight
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="horizontal-line summary-line"></div>
+        <div class="row">
+            <div class="col-md-8 col-lg-8">
+                <div class="osd-tile-list">
+                    <div ng-repeat="osd in osdVm.osdList" class="osd-tile col-xs-6 col-md-4 col-sm-3 col-lg-3">
+                        <div class="osd-cell card-box-shadow" ng-click="osdVm.showOSDDetails(osd)" ng-class="{'selected-box': (osd.uuid === osdVm.selectedOSD.uuid)}">
+                            <div class="osd-body container-fluid">
+                                <div class="row">
+                                    <p class="col-sm-7 osd-name text-center">OSD&#46;{{osd.osd}}</p>
+                                    <div class="col-sm-5 osd-status-icon">
+                                        <span ng-show="osd.state[1] === 'up'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
+                                        <span ng-show="osd.state[1] !== 'up'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- TODO - bind the value of weight-->
+                                    <div ng-show="osdVm.selectionMode === 'weight'" class="col-sm-12 weight-bar"><uib-progressbar value="100"></uib-progressbar></div>
+                                    <div ng-show="osdVm.selectionMode === 'utilisation'" class="col-sm-12 weight-bar"><uib-progressbar value="50"></uib-progressbar></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 osd-details-section" ng-show="osdVm.selectedOSD">
+                <div class="row name-section">
+                    <div class="col-md-1">
+                        <span ng-show="osdVm.selectedOSD.state[1] === 'up'" class="glyphicon glyphicon-ok-circle active-status" aria-hidden="true"></span>
+                        <span ng-show="osdVm.selectedOSD.state[1] !== 'up'" class="glyphicon glyphicon-download inactive-status" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-10 text-bold">{{osdVm.selectedOSD.name}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 osd-status" ng-class="{active: (osdVm.selectedOSD.state[1] === 'up'), inactive: (osdVm.selectedOSD.state[1] !== 'up')}">{{osdVm.selectedOSD.status}}</div>
+                </div>
+                <div class="row horizontal-line"></div>
+                <div class="row details-field">
+                    <div class="text-bold">Device Path:</div>
+                    <div>{{osdVm.selectedOSD.devicePath}}</div>
+                </div>
+                <div class="row details-field">
+                    <div class="text-bold">Utilisation:</div>
+                    <div>{{osdVm.selectedOSD.utilisation}}</div>
+                </div>
+                <div class="row details-field">
+                    <div class="text-bold">OSD Weight:</div>
+                    <div>{{osdVm.selectedOSD.weight}}</div>
+                </div>
+                <div class="row details-field">
+                    <div class="text-bold">Storage Profile:</div>
+                    <div>{{osdVm.selectedOSD.storageProfile}}</div>
+                </div>
+                <div class="row details-field">
+                    <div class="text-bold">Pool:</div>
+                    <div>{{osdVm.selectedOSD.pool}}</div>
+                </div>
+
+                <div class="journal-block">
+                    
+                    <div class="row details-field details-header">
+                        <span ng-show="!osdVm.showJournalDetails" class="glyphicon glyphicon glyphicon-chevron-right pull-left" aria-hidden="true" ng-click="osdVm.toggleJournalBlock()"></span>
+                        <span ng-show="osdVm.showJournalDetails" class="glyphicon glyphicon glyphicon-chevron-down pull-left" aria-hidden="true" ng-click="osdVm.toggleJournalBlock()"></span>
+                        <div class="text-bold pull-left">Journal on {{osdVm.selectedOSD.name}}</div>
+                    </div>
+
+                    <div ng-show="osdVm.showJournalDetails">
+                        <div class="row details-field">
+                            <div class="text-bold">Device Path:</div>
+                            <div>{{osdVm.selectedOSD.journal.devicePath}}</div>
+                        </div>
+                        <div class="row details-field">
+                            <div class="text-bold">Capacity:</div>
+                            <div>{{osdVm.selectedOSD.journal.capacity}} GB</div>
+                        </div>
+                        <div class="row details-field">
+                            <div class="text-bold">OSD Weight:</div>
+                            <div>{{osdVm.selectedOSD.weight}}</div>
+                        </div>
+                        <div class="row details-field">
+                            <div class="text-bold">Storage Profile:</div>
+                            <div>{{osdVm.selectedOSD.storageProfile}}</div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="domain-block">
+                    
+                    <div class="row details-field details-header">
+                        <span ng-show="!osdVm.showDomainDetails" class="glyphicon glyphicon glyphicon-chevron-right pull-left" aria-hidden="true" ng-click="osdVm.toggleDomainBlock()"></span>
+                        <span ng-show="osdVm.showDomainDetails" class="glyphicon glyphicon glyphicon-chevron-down pull-left" aria-hidden="true" ng-click="osdVm.toggleDomainBlock()"></span>
+                        <div class="text-bold pull-left">Failure Domain</div>
+                    </div>
+
+                    <div ng-show="osdVm.showDomainDetails" class="domain-block-body">
+                        <div class="row details-field">
+                            <div class="text-bold col-md-4">Datacenter</div>
+                            <div class="col-md-6">{{osdVm.selectedOSD.domain.dataCenter}}</div>
+                        </div>
+                        <div class="row details-field">
+                            <div class="text-bold col-md-4">Room</div>
+                            <div class="col-md-6">{{osdVm.selectedOSD.domain.room}}</div>
+                        </div>
+                        <div class="row details-field">
+                            <div class="text-bold col-md-4">Rack</div>
+                            <div class="col-md-6">{{osdVm.selectedOSD.domain.rack}}</div>
+                        </div>
+                        <div class="row details-field">
+                            <div class="text-bold col-md-4">Chasis</div>
+                            <div class="col-md-6">{{osdVm.selectedOSD.domain.chasis}}</div>
+                        </div>
+                        <div class="row details-field">
+                            <div class="text-bold col-md-4">Host</div>
+                            <div class="col-md-6">{{osdVm.selectedOSD.domain.host}}</div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <loading-icon class="text-center loading-icon" config="osdVm.loadingConfig"></loading-icon>
+</div>
