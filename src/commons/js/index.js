@@ -4,9 +4,7 @@
 
     var storageModule = angular.module("StorageManagementModule", ["ui.router", "ngMaterial", "ui.bootstrap.progressbar"]);
 
-    storageModule.constant("serverIP", "http://10.3.15.35:9292/");
-
-    storageModule.config(function($stateProvider, $urlRouterProvider) {
+    storageModule.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
         $urlRouterProvider.otherwise("/dashboard");
 
@@ -25,50 +23,6 @@
                 templateUrl: "modules/clusters/clusters.html",
                 controller: "clusterController",
                 controllerAs: "clusterVm"
-            })
-            .state("hosts", {
-                parent: "clusters",
-                url: "/hosts",
-                views: {
-                    "clustersMenu@clusters" : {
-                        templateUrl: "modules/hosts/hosts.html",
-                        controller: "hostController",
-                        controllerAs: "hostVm"
-                    }
-                }
-            })
-            .state("overview", {
-                parent: "clusters",
-                url: "/overview",
-                views: {
-                    "clustersMenu@clusters" : {
-                        templateUrl: "modules/overview/overview.html",
-                        controller: "overviewController",
-                        controllerAs: "overviewVm"
-                    }
-                }
-            })
-            .state("pools", {
-                parent: "clusters",
-                url: "/pools",
-                views: {
-                    "clustersMenu@clusters" : {
-                        templateUrl: "modules/pools/pools.html",
-                        controller: "poolController",
-                        controllerAs: "poolVm"
-                    }
-                }
-            })
-            .state("osds", {
-                parent: "clusters",
-                url: "/osds",
-                views: {
-                    "clustersMenu@clusters" : {
-                        templateUrl: "modules/osds/osds.html",
-                        controller: "osdController",
-                        controllerAs: "osdVm"
-                    }
-                }
             });
     });
 
